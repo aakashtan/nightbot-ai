@@ -11,16 +11,15 @@ export default async function handler(req, res) {
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [
-        { role: "system", content: "You are NightAI, a friendly and concise chatbot." },
+        { role: "system", content: "You are NightAI, a concise chatbot." },
         { role: "user", content: question },
       ],
       max_tokens: 80,
     });
 
-    const answer = completion.choices[0].message.content.trim();
-    res.status(200).send(answer);
+    res.status(200).send(completion.choices[0].message.content.trim());
   } catch (err) {
     console.error(err);
-    res.status(500).send("NightAI is taking a nap 😴");
+    res.status(500).send("NightAI is currently unavailable.");
   }
 }
