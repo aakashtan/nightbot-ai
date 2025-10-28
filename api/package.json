@@ -1,8 +1,16 @@
 {
   "name": "nightbot-ai",
   "version": "1.0.0",
-  "type": "module",
+  "description": "Nightbot AI chatbot API",
+  "main": "api/ask.js",
+  "scripts": {
+    "start": "vercel dev"
+  },
   "dependencies": {
-    "openai": "^4.0.0"
+    "openai": "^4.9.0"    
+  },
+  "engines": {
+    "node": ">=18.x"
   }
 }
+
